@@ -15,7 +15,6 @@ public class SimpleMultiThread implements Runnable {
     private static final ExecutorService POOL = Executors.newCachedThreadPool();
 
     private static final int QUEUE_SIZE = 262144;
-//    private static final int VALUES_SIZE = 4096;
     private static final int VALUES_SIZE = 524288;
 
     private final BlockingQueue<Integer> input = new ArrayBlockingQueue<>(QUEUE_SIZE);
@@ -71,7 +70,6 @@ public class SimpleMultiThread implements Runnable {
     }
 
     public static void main(String[] args) {
-//        long start = System.currentTimeMillis();
         SimpleMultiThread sieve = new SimpleMultiThread();
         POOL.execute(sieve);
         IntStream.iterate(3, i -> i += 2).forEach(sieve::add);
