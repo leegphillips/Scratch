@@ -12,9 +12,9 @@ public class Reference {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        IntStream.iterate(3, i -> i + 1)
+        IntStream.iterate(3, i -> i + 2)
                 .limit(MAX)
-                .filter(potential -> IntStream.rangeClosed(2, (int)(Math.sqrt(potential))).allMatch(n -> potential % n != 0))
+                .filter(potential -> IntStream.rangeClosed(3, (int)(Math.sqrt(potential))).allMatch(n -> potential % n != 0))
                 .forEach(prime -> LOG.debug(Integer.toString(prime)));
         LOG.debug("Time taken for " + MAX + ": " + ((System.currentTimeMillis() - start) / 1000) + "s");
     }
